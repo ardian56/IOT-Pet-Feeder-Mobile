@@ -7,8 +7,8 @@ import '../../core/app_theme.dart';
 import '../../providers/feed_log_provider.dart';
 import '../widgets/add_feed_bottom_sheet.dart';
 import '../widgets/digital_clock_header.dart';
-import '../widgets/feed_log_card.dart';
 import '../widgets/glass_card.dart';
+import '../widgets/glass_card_widget.dart';
 
 /// Main Dashboard Screen with Earthy Glassmorphism aesthetics and offline fallback handling.
 class DashboardScreen extends ConsumerStatefulWidget {
@@ -249,7 +249,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                         delegate: SliverChildBuilderDelegate(
                           (context, index) {
                             final log = logs[index];
-                            return FeedLogCard(
+                            return GlassCardWidget(
                               log: log,
                               onToggle: () {
                                 ref
