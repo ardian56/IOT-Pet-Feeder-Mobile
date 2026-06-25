@@ -15,8 +15,7 @@ class SupabaseConfig {
       dotenv.env['SUPABASE_ANON_KEY'] ??
       const String.fromEnvironment(
         'SUPABASE_ANON_KEY',
-        defaultValue:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJub2hud2Fld3lobGN0ZnRjcHF6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM5NzExMTIsImV4cCI6MjA0OTU0NzExMn0.gnElfIw4eLBUFRMLWovUY1ayalD4lJiSkSSt5WtgD2I',
+        defaultValue: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJub2hud2Fld3lobGN0ZnRjcHF6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM5NzExMTIsImV4cCI6MjA0OTU0NzExMn0.gnElfIw4eLBUFRMLWovUY1ayalD4lJiSkSSt5WtgD2I',
       );
 
   static bool get isConfigured =>

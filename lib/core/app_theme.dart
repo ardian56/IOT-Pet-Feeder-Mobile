@@ -16,14 +16,18 @@ class AppColors {
   static const Color accentOrange = Color(0xFFD98E54);
 
   // Glassmorphism specs
-  static const Color glassBackground = Color(0x1AFFFFFF); // white with 0.1 opacity
+  static const Color glassBackground = Color(
+    0x1AFFFFFF,
+  ); // white with 0.1 opacity
   static const Color glassBorder = Color(0x26FFFFFF); // white with 0.15 opacity
   static const Color glassInput = Color(0x14FFFFFF); // white with 0.08 opacity
 }
 
 class AppTheme {
   static ThemeData get darkTheme {
-    final baseTextTheme = GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme);
+    final baseTextTheme = GoogleFonts.poppinsTextTheme(
+      ThemeData.dark().textTheme,
+    );
 
     return ThemeData(
       useMaterial3: true,

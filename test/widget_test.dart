@@ -6,12 +6,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:iot_pet_feeder/main.dart';
 
 void main() {
-  testWidgets('Dashboard smoke test loads feed logs and clock', (WidgetTester tester) async {
-    await tester.pumpWidget(
-      const ProviderScope(
-        child: IoTPetFeederApp(),
-      ),
-    );
+  testWidgets('Dashboard smoke test loads feed logs and clock', (
+    WidgetTester tester,
+  ) async {
+    await tester.pumpWidget(const ProviderScope(child: IoTPetFeederApp()));
 
     await tester.pumpAndSettle();
 
@@ -32,15 +30,16 @@ void main() {
     expect(find.text('Tambah Jadwal Pakan'), findsOneWidget);
 
     // Verify offline fallback SnackBar
-    expect(find.text('Server offline/paused. Menampilkan data lokal.'), findsOneWidget);
+    expect(
+      find.text('Server offline/paused. Menampilkan data lokal.'),
+      findsOneWidget,
+    );
   });
 
-  testWidgets('Open bottom sheet and add schedule', (WidgetTester tester) async {
-    await tester.pumpWidget(
-      const ProviderScope(
-        child: IoTPetFeederApp(),
-      ),
-    );
+  testWidgets('Open bottom sheet and add schedule', (
+    WidgetTester tester,
+  ) async {
+    await tester.pumpWidget(const ProviderScope(child: IoTPetFeederApp()));
     await tester.pumpAndSettle();
 
     // Tap tambah jadwal

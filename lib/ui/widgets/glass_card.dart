@@ -1,7 +1,9 @@
 // lib/ui/widgets/glass_card.dart
 
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
+
 import '../../core/app_theme.dart';
 
 /// Reusable Glassmorphic container with blur & translucent border.
@@ -48,10 +50,7 @@ class GlassCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(borderRadius),
               border: Border.fromBorderSide(
                 borderSide ??
-                    const BorderSide(
-                      color: AppColors.glassBorder,
-                      width: 1.0,
-                    ),
+                    const BorderSide(color: AppColors.glassBorder, width: 1.0),
               ),
             ),
             child: child,

@@ -1,10 +1,12 @@
 // lib/ui/widgets/add_feed_bottom_sheet.dart
 
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+
 import '../../core/app_theme.dart';
 import '../../providers/feed_log_provider.dart';
 
@@ -108,10 +110,9 @@ class _AddFeedBottomSheetState extends ConsumerState<AddFeedBottomSheet> {
     final minuteStr = _selectedTime.minute.toString().padLeft(2, '0');
     final timeStr = '$hourStr:$minuteStr';
 
-    ref.read(feedLogProvider.notifier).addFeedLog(
-      tanggal: dateStr,
-      jam: timeStr,
-    );
+    ref
+        .read(feedLogProvider.notifier)
+        .addFeedLog(tanggal: dateStr, jam: timeStr);
 
     Navigator.pop(context);
 
@@ -212,7 +213,10 @@ class _AddFeedBottomSheetState extends ConsumerState<AddFeedBottomSheet> {
                   onTap: _pickDate,
                   borderRadius: BorderRadius.circular(20),
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 14,
+                    ),
                     decoration: BoxDecoration(
                       color: AppColors.glassBackground,
                       borderRadius: BorderRadius.circular(20),
@@ -263,7 +267,10 @@ class _AddFeedBottomSheetState extends ConsumerState<AddFeedBottomSheet> {
                   onTap: _pickTime,
                   borderRadius: BorderRadius.circular(20),
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 14,
+                    ),
                     decoration: BoxDecoration(
                       color: AppColors.glassBackground,
                       borderRadius: BorderRadius.circular(20),

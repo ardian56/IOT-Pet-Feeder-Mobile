@@ -2,6 +2,7 @@
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+
 import '../models/feed_log.dart';
 import '../repositories/log_repository.dart';
 
@@ -53,15 +54,9 @@ class FeedLogState {
   final List<FeedLog> logs;
   final bool isFallback;
 
-  const FeedLogState({
-    required this.logs,
-    this.isFallback = false,
-  });
+  const FeedLogState({required this.logs, this.isFallback = false});
 
-  FeedLogState copyWith({
-    List<FeedLog>? logs,
-    bool? isFallback,
-  }) {
+  FeedLogState copyWith({List<FeedLog>? logs, bool? isFallback}) {
     return FeedLogState(
       logs: logs ?? this.logs,
       isFallback: isFallback ?? this.isFallback,
@@ -75,23 +70,20 @@ class FeedLogNotifier extends Notifier<FeedLogState> {
 
   @override
   FeedLogState build() {
-    return FeedLogState(
-      logs: initialDummyFeedLogs,
-      isFallback: false,
-    );
+    return FeedLogState(logs: initialDummyFeedLogs, isFallback: false);
   }
 
   /// Load logs from Supabase or fallback to dummy
   Future<void> loadLogs() async {
     final fetched = await _repository.getLogs();
-    state = FeedLogState(
-      logs: fetched,
-      isFallback: _repository.isFallback,
-    );
+    state = FeedLogState(logs: fetched, isFallback: _repository.isFallback);
   }
 
   /// Add new feed log
-  Future<void> addFeedLog({required String tanggal, required String jam}) async {
+  Future<void> addFeedLog({
+    required String tanggal,
+    required String jam,
+  }) async {
     final newLog = await _repository.addLog(tanggal, jam);
     state = FeedLogState(
       logs: [newLog, ...state.logs.where((l) => l.id != newLog.id)],
@@ -121,8 +113,9 @@ class FeedLogNotifier extends Notifier<FeedLogState> {
 }
 
 /// Provider for FeedLogNotifier
-final feedLogProvider =
-    NotifierProvider<FeedLogNotifier, FeedLogState>(FeedLogNotifier.new);
+final feedLogProvider = NotifierProvider<FeedLogNotifier, FeedLogState>(
+  FeedLogNotifier.new,
+);
 
 /// Filter selection Notifier
 class FeedLogFilterNotifier extends Notifier<FeedLogFilter> {
@@ -137,8 +130,8 @@ class FeedLogFilterNotifier extends Notifier<FeedLogFilter> {
 /// Filter selection provider
 final feedLogFilterProvider =
     NotifierProvider<FeedLogFilterNotifier, FeedLogFilter>(
-  FeedLogFilterNotifier.new,
-);
+      FeedLogFilterNotifier.new,
+    );
 
 /// Filtered logs provider based on selected chip filter
 final filteredFeedLogsProvider = Provider<List<FeedLog>>((ref) {

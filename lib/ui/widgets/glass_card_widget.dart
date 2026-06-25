@@ -1,8 +1,10 @@
 // lib/ui/widgets/glass_card_widget.dart
 
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import '../../core/app_theme.dart';
 import '../../models/feed_log.dart';
 
@@ -44,10 +46,7 @@ class GlassCardWidget extends StatelessWidget {
             decoration: BoxDecoration(
               color: AppColors.glassBackground,
               borderRadius: BorderRadius.circular(22),
-              border: Border.all(
-                color: AppColors.glassBorder,
-                width: 1.0,
-              ),
+              border: Border.all(color: AppColors.glassBorder, width: 1.0),
             ),
             child: Row(
               children: [
@@ -107,8 +106,12 @@ class GlassCardWidget extends StatelessWidget {
                             ),
                             decoration: BoxDecoration(
                               color: isCompleted
-                                  ? AppColors.accentGreen.withValues(alpha: 0.15)
-                                  : AppColors.accentOlive.withValues(alpha: 0.3),
+                                  ? AppColors.accentGreen.withValues(
+                                      alpha: 0.15,
+                                    )
+                                  : AppColors.accentOlive.withValues(
+                                      alpha: 0.3,
+                                    ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Text(

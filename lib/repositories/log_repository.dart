@@ -1,6 +1,7 @@
 // lib/repositories/log_repository.dart
 
 import 'package:supabase_flutter/supabase_flutter.dart';
+
 import '../models/feed_log.dart';
 import '../providers/feed_log_provider.dart' show initialDummyFeedLogs;
 
@@ -34,10 +35,7 @@ class LogRepository {
     try {
       final response = await Supabase.instance.client
           .from('feed_logs')
-          .insert({
-            'tanggal': tanggal,
-            'jam': jam,
-          })
+          .insert({'tanggal': tanggal, 'jam': jam})
           .select()
           .single();
 

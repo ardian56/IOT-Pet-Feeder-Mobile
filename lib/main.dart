@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+
 import 'core/app_theme.dart';
 import 'core/supabase_config.dart';
 import 'ui/screens/dashboard_screen.dart';
@@ -43,11 +44,7 @@ void main() async {
     print('Supabase init error: $e');
   }
 
-  runApp(
-    const ProviderScope(
-      child: IoTPetFeederApp(),
-    ),
-  );
+  runApp(const ProviderScope(child: IoTPetFeederApp()));
 }
 
 class IoTPetFeederApp extends StatelessWidget {

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import '../../core/app_theme.dart';
 import '../../providers/feed_log_provider.dart';
 import '../widgets/add_feed_bottom_sheet.dart';
@@ -79,10 +80,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                colors: [
-                  AppColors.bgGradientStart,
-                  AppColors.bgGradientEnd,
-                ],
+                colors: [AppColors.bgGradientStart, AppColors.bgGradientEnd],
               ),
             ),
           ),
@@ -185,7 +183,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                 _buildFilterChip(
                                   label: 'Hari Ini',
                                   filter: FeedLogFilter.today,
-                                  isSelected: activeFilter == FeedLogFilter.today,
+                                  isSelected:
+                                      activeFilter == FeedLogFilter.today,
                                 ),
                                 const SizedBox(width: 8),
                                 _buildFilterChip(
@@ -217,7 +216,9 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                               Icon(
                                 Icons.event_busy_rounded,
                                 size: 48,
-                                color: AppColors.textMuted.withValues(alpha: 0.7),
+                                color: AppColors.textMuted.withValues(
+                                  alpha: 0.7,
+                                ),
                               ),
                               const SizedBox(height: 12),
                               Text(
@@ -246,25 +247,22 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                     SliverPadding(
                       padding: const EdgeInsets.fromLTRB(20, 0, 20, 90),
                       sliver: SliverList(
-                        delegate: SliverChildBuilderDelegate(
-                          (context, index) {
-                            final log = logs[index];
-                            return GlassCardWidget(
-                              log: log,
-                              onToggle: () {
-                                ref
-                                    .read(feedLogProvider.notifier)
-                                    .toggleStatus(log.id);
-                              },
-                              onDelete: () {
-                                ref
-                                    .read(feedLogProvider.notifier)
-                                    .deleteFeedLog(log.id);
-                              },
-                            );
-                          },
-                          childCount: logs.length,
-                        ),
+                        delegate: SliverChildBuilderDelegate((context, index) {
+                          final log = logs[index];
+                          return GlassCardWidget(
+                            log: log,
+                            onToggle: () {
+                              ref
+                                  .read(feedLogProvider.notifier)
+                                  .toggleStatus(log.id);
+                            },
+                            onDelete: () {
+                              ref
+                                  .read(feedLogProvider.notifier)
+                                  .deleteFeedLog(log.id);
+                            },
+                          );
+                        }, childCount: logs.length),
                       ),
                     ),
                 ],
@@ -325,9 +323,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
       side: BorderSide(
         color: isSelected ? AppColors.accentGreen : AppColors.glassBorder,
       ),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
     );
   }
 }

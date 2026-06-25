@@ -1,9 +1,11 @@
 // lib/ui/widgets/digital_clock_header.dart
 
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+
 import '../../core/app_theme.dart';
 import 'glass_card.dart';
 
@@ -96,7 +98,10 @@ class _DigitalClockHeaderState extends State<DigitalClockHeader> {
               ),
               // Status Badge
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 4,
+                ),
                 decoration: BoxDecoration(
                   color: AppColors.accentGreen.withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(20),
@@ -155,7 +160,10 @@ class _DigitalClockHeaderState extends State<DigitalClockHeader> {
               ),
               const Spacer(),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 6,
+                ),
                 decoration: BoxDecoration(
                   color: AppColors.glassInput,
                   borderRadius: BorderRadius.circular(16),
